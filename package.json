@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://github.com/ramiyappan/react-jobs-ui",
+  "homepage": "https://ramiyappan.github.io/react-jobs-ui",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
