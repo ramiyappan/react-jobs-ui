@@ -12,6 +12,7 @@
     "server": "json-server --watch src/jobs.json --port 8000"
   },
   "dependencies": {
+    "gh-pages": "^6.1.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
