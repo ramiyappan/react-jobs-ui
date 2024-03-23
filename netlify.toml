@@ -1,0 +1,3 @@
+[build]
+  functions = "netlify/functions"
+  included_files = ["src/jobs.json"]
