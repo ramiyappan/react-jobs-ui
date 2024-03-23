@@ -1,3 +1,7 @@
 [build]
   functions = "netlify/functions"
   included_files = ["src/jobs.json"]
+[[redirects]]
+  from = "/api/*"
+  to = "/.netlify/functions/jobs/:splat"
+  status = 200
