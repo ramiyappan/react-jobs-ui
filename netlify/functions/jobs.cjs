@@ -6,11 +6,11 @@ const { v4: uuidv4 } = require('uuid');
 const data = require('../../src/jobs.json')
 
 exports.handler = async (event, context) => {
-  // console.log('Event path:', event.path);
+  console.log('Event path:', event.path);
   try {
 
     // handle requests based on query string parameters to return a subset of jobs
-    if (event.path === '/.netlify/functions/jobs/jobs' && event.httpMethod === 'GET') {
+    if (event.path === '/api/jobs' && event.httpMethod === 'GET') { // /.netlify/functions/jobs/jobs
       const queryParams = event.queryStringParameters || {};
       const limit = queryParams._limit ? parseInt(queryParams._limit, 10) : undefined;
       
