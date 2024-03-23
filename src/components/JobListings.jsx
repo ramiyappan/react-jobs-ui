@@ -12,7 +12,9 @@ const JobListings = ({isHome = false}) => {
         const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs'
         try {
           const res = await fetch(apiUrl)
+          console.log('res = ', res)
           const data = await res.json()
+          console.log('data = ', data)
           setJobs(data)
         }
         catch(error) {
