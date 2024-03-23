@@ -9,12 +9,11 @@ const JobListings = ({isHome = false}) => {
 
     useEffect(() => {
       const fetchJobs = async () => {
-        const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs'
+        // const apiUrl = isHome ? '/api/jobs?_limit=3' : '/api/jobs'
+        const apiUrl = isHome ? '/.netlify/functions/jobs/jobs?_limit=3' : '/.netlify/functions/jobs/jobs'
         try {
           const res = await fetch(apiUrl)
-          console.log('res = ', res)
           const data = await res.json()
-          console.log('data = ', data)
           setJobs(data)
         }
         catch(error) {

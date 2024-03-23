@@ -10,7 +10,7 @@ exports.handler = async (event, context) => {
   try {
 
     // handle requests based on query string parameters to return a subset of jobs
-    if (event.path === '/api/jobs' && event.httpMethod === 'GET') { // /.netlify/functions/jobs/jobs
+    if (event.path === '/.netlify/functions/jobs/jobs' && event.httpMethod === 'GET') {
       const queryParams = event.queryStringParameters || {};
       const limit = queryParams._limit ? parseInt(queryParams._limit, 10) : undefined;
       
