@@ -8,7 +8,8 @@ export default defineConfig({
     port:5173, 
     proxy: {
       '/api' : {
-        target: 'http://localhost:8888', 
+        // use target: 'http://localhost:8888' for netlify dev
+        target: 'https://stupendous-meerkat-014f48.netlify.app', 
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '/.netlify/functions/jobs')
       }
