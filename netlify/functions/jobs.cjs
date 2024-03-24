@@ -6,7 +6,9 @@ const { v4: uuidv4 } = require('uuid');
 const data = require('../../src/jobs.json')
 
 exports.handler = async (event, context) => {
-  console.log('Event path:', event.path);
+  //console.log('Event path:', event.path);
+  const currentDirectory = process.cwd();
+  console.log('Current directory:', currentDirectory);
   try {
 
     // handle requests based on query string parameters to return a subset of jobs
@@ -60,7 +62,7 @@ exports.handler = async (event, context) => {
       if (index !== -1) {
         data.jobs[index] = { ...data.jobs[index], ...requestBody };
 
-        const jsonFilePath = path.resolve(__dirname, '../../src/jobs.json');
+        const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
         console.log('resolve path: ', jsonFilePath)
         fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
@@ -87,7 +89,7 @@ exports.handler = async (event, context) => {
       requestBody.id = jobId;
       data.jobs.push(requestBody);
 
-      const jsonFilePath = path.resolve(__dirname, '../../src/jobs.json');
+      const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
       fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
       return {
@@ -107,7 +109,7 @@ exports.handler = async (event, context) => {
       if (indexToDelete !== -1) {
         const deletedJob = data.jobs.splice(indexToDelete, 1)[0];
 
-        const jsonFilePath = path.resolve(__dirname, '../../src/jobs.json');
+        const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
         fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
         return {
