@@ -62,7 +62,7 @@ exports.handler = async (event, context) => {
       if (index !== -1) {
         data.jobs[index] = { ...data.jobs[index], ...requestBody };
 
-        const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
+        const jsonFilePath = path.resolve(__dirname, '/src/jobs.json');
         console.log('resolve path: ', jsonFilePath)
         fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
@@ -89,7 +89,7 @@ exports.handler = async (event, context) => {
       requestBody.id = jobId;
       data.jobs.push(requestBody);
 
-      const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
+      const jsonFilePath = path.resolve(__dirname, '/src/jobs.json');
       fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
       return {
@@ -109,7 +109,7 @@ exports.handler = async (event, context) => {
       if (indexToDelete !== -1) {
         const deletedJob = data.jobs.splice(indexToDelete, 1)[0];
 
-        const jsonFilePath = path.resolve(__dirname, '../../../../../../../src/jobs.json');
+        const jsonFilePath = path.resolve(__dirname, '/src/jobs.json');
         fs.writeFileSync(jsonFilePath, JSON.stringify(data));
 
         return {
